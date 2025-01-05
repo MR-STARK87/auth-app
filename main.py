@@ -2,6 +2,7 @@ import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, auth
 import requests
+import json
 
 # Load API key and service account path from environment variables (Streamlit secrets)
 WEB_API_KEY = st.secrets["FIREBASE_API_KEY"]
