@@ -35,29 +35,6 @@ def authenticate_user(email, password):
 
     except:
         st.warning("Login Failed")
-    
-    """
-    Authenticate a user using Firebase REST API.
-    
-    
-    url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={WEB_API_KEY}"
-    payload = {
-        "email": email,
-        "password": password,
-        "returnSecureToken": True
-    }
-    headers = {
-    "Referer": "https://test12q.streamlit.app"
-}
-    response = requests.post(url, json=payload, headers=headers)
-    return response.json()
-   
-    request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(st.secrets['FIREBASE_API_KEY'])
-    data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
-    request_object = requests.post(request_ref, headers=headers,data=data)
-    return request_object.json()
-    """
-
 
 def app():
     st.title("My New Authentication App")
@@ -71,13 +48,11 @@ def app():
         if st.button('Login'):
             if email and password:
                 result = authenticate_user(email, password)
-     #         if "idToken" in result:
-                st.success("Logged in successfully")
             else:
-                    error_message = result.get('error', {}).get('message', 'Unknown error')
-                    st.error(f"Login failed: {error_message}")
+                error_message = result.get('error', {}).get('message', 'Unknown error')
+                st.error(f"Login failed: {error_message}")
         else:
-                st.warning("Please provide both email and password.")
+            st.warning("Please provide both email and password.")
     else:
         email = st.text_input('Enter your email')
         password = st.text_input('Enter your password', type='password')
