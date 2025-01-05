@@ -9,7 +9,7 @@ WEB_API_KEY = st.secrets["FIREBASE_API_KEY"]
 
 # Initialize Firebase app only if not already initialized
 if not firebase_admin._apps:
-    cred = credentials.Certificate("ample-firebase-ai-app-a51d5-fb4cd6e72cfd.json")
+    cred = credentials.Certificate("mykey.json")
     firebase_admin.initialize_app(cred)
 
 def authenticate_user(email, password):
