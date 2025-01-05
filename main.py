@@ -44,9 +44,7 @@ def authenticate_user(email, password):
     request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(st.secrets['FIREBASE_API_KEY'])
     #headers = {"content-type": "application/json; charset=UTF-8"}
     data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
-    headers = {
-         "Referer": "https://test12q.streamlit.app"
-    }
+    headers = {"content-type": "application/json; charset=UTF-8"}
     request_object = requests.post(request_ref,data=data)
     return request_object.json()
 
