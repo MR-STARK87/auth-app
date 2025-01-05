@@ -5,7 +5,7 @@ import requests
 
 # Load API key and service account path from environment variables (Streamlit secrets)
 WEB_API_KEY = st.secrets["FIREBASE_API_KEY"]
-SERVICE_ACCOUNT_PATH = st.secrets["SERVICE_ACCOUNT_PATH"]
+service_account_info = st.secrets["FIREBASE_ADMIN"]
 
 # Initialize Firebase app only if not already initialized
 if not firebase_admin._apps:
