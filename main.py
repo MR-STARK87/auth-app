@@ -71,7 +71,7 @@ def app():
         if st.button('Login'):
             if email and password:
                 result = authenticate_user(email, password)
-                if "idToken" in result:
+     #         if "idToken" in result:
                     st.success("Logged in successfully")
                 else:
                     error_message = result.get('error', {}).get('message', 'Unknown error')
