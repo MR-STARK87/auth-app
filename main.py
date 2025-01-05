@@ -9,7 +9,7 @@ service_account_info = st.secrets["FIREBASE_ADMIN"]
 
 # Initialize Firebase app only if not already initialized
 if not firebase_admin._apps:
-    cred = credentials.Certificate(SERVICE_ACCOUNT_PATH)
+    cred = credentials.Certificate(service_account_info)
     firebase_admin.initialize_app(cred)
 
 def authenticate_user(email, password):
