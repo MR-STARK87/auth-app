@@ -6,11 +6,10 @@ import json
 
 # Load API key and service account path from environment variables (Streamlit secrets)
 WEB_API_KEY = st.secrets["FIREBASE_API_KEY"]
-service_account_info = st.secrets["FIREBASE_ADMIN"]
 
 # Initialize Firebase app only if not already initialized
 if not firebase_admin._apps:
-    cred = credentials.Certificate(service_account_info)
+    cred = credentials.Certificate(ample-firebase-ai-app-a51d5-fb4cd6e72cfd.json)
     firebase_admin.initialize_app(cred)
 
 def authenticate_user(email, password):
