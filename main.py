@@ -26,7 +26,7 @@ service_account_info = {
 # Initialize Firebase app only if not already initialized
 if not firebase_admin._apps:
     cred = credentials.Certificate(service_account_info)
-    firebase_admin.initialize_app(cred)
+    firebase_admin.initialize_app(WEB_API_KEY)
 
 def authenticate_user(email, password):
     """
