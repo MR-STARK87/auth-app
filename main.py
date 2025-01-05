@@ -45,7 +45,7 @@ def authenticate_user(email, password):
     #headers = {"content-type": "application/json; charset=UTF-8"}
     data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
     headers = {"content-type": "application/json; charset=UTF-8"}
-    request_object = requests.post(request_ref,data=data)
+    request_object = requests.post(request_ref,headers=headers,data=data)
     return request_object.json()
 
 def app():
