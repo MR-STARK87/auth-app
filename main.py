@@ -73,10 +73,10 @@ def app():
                 result = authenticate_user(email, password)
      #         if "idToken" in result:
                 st.success("Logged in successfully")
-                 else:
+            else:
                     error_message = result.get('error', {}).get('message', 'Unknown error')
                     st.error(f"Login failed: {error_message}")
-            else:
+        else:
                 st.warning("Please provide both email and password.")
     else:
         email = st.text_input('Enter your email')
