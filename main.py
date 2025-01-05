@@ -32,13 +32,16 @@ def authenticate_user(email, password):
     """
     Authenticate a user using Firebase REST API.
     """
+    
     url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={WEB_API_KEY}"
     payload = {
         "email": email,
         "password": password,
         "returnSecureToken": True
     }
-    headers = {"content-type": "application/json; charset=UTF-8"}
+    headers = {
+    "Referer": "https://test12q.streamlit.app"
+}
     response = requests.post(url, json=payload, headers=headers)
     return response.json()
     """
