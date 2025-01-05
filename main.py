@@ -47,7 +47,7 @@ def app():
 
         if st.button('Login'):
             if email and password:
-                result = authenticate_user(email, password)
+                authenticate_user(email, password)
             else:
                 error_message = result.get('error', {}).get('message', 'Unknown error')
                 st.error(f"Login failed: {error_message}")
