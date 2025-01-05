@@ -45,9 +45,9 @@ def authenticate_user(email, password):
     #headers = {"content-type": "application/json; charset=UTF-8"}
     data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
     headers = {
-    "Referer": "https://test12q.streamlit.app"
-}
-    request_object = requests.post(request_ref, headers=headers, data=data)
+   ''' "Referer": "https://test12q.streamlit.app"
+}'''
+    request_object = requests.post(request_ref,data=data)
     return request_object.json()
 
 def app():
