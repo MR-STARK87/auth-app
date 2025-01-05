@@ -38,7 +38,10 @@ def authenticate_user(email, password):
         "password": password,
         "returnSecureToken": True
     }
-    response = requests.post(url, json=payload)
+    headers = {
+    "Referer": "https://test12q.streamlit.app"
+}
+    response = requests.post(url, json=payload, headers=headers)
     return response.json()
 
 def app():
