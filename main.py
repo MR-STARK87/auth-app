@@ -29,9 +29,16 @@ if not firebase_admin._apps:
     firebase_admin.initialize_app(WEB_API_KEY)
 
 def authenticate_user(email, password):
+    try:
+        user = auth.get_user_by_email(email)
+        st.success("Login Successful")
+
+    except:
+        st.warning("Login Failed")
+    
     """
     Authenticate a user using Firebase REST API.
-    """
+    
     
     url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={WEB_API_KEY}"
     payload = {
@@ -45,11 +52,15 @@ def authenticate_user(email, password):
     response = requests.post(url, json=payload, headers=headers)
     return response.json()
     """
+    
+    """
     request_ref = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key={0}".format(st.secrets['FIREBASE_API_KEY'])
     data = json.dumps({"email": email, "password": password, "returnSecureToken": True})
     request_object = requests.post(request_ref, headers=headers,data=data)
     return request_object.json()
     """
+
+
 def app():
     st.title("My New Authentication App")
 
