@@ -6,6 +6,7 @@ import json
 
 # Load API key and service account path from environment variables (Streamlit secrets)
 WEB_API_KEY = st.secrets["FIREBASE_API_KEY"]
+firebase_secrets = st.secrets["FIREBASE_ADMIN"]
 
 service_account_info = {
     "type": firebase_secrets["type"],
