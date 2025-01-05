@@ -51,8 +51,8 @@ def app():
             else:
                 error_message = result.get('error', {}).get('message', 'Unknown error')
                 st.error(f"Login failed: {error_message}")
-        else:
-            st.warning("Please provide both email and password.")
+        #else:
+            #st.warning("Please provide both email and password.")
     else:
         email = st.text_input('Enter your email')
         password = st.text_input('Enter your password', type='password')
